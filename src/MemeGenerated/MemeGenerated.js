@@ -53,18 +53,9 @@ export const MemeGenerated=()=>{
         await addDoc(valRef,{txtVal:txt,imgUrl:img})
         alert("Data added successfully")
 }
-    const getData = async () =>{
-        const valRef = collection(txtDB,'txtData')
-        // const name=collection(Signin,'Email')
-        const dataDb = await getDocs(valRef)
-        const allData = dataDb.docs.map(val=>({...val.data(),id:val.id}))
-        setData(allData)
-        console.log(dataDb)
-    }
+ 
 
-    useEffect(()=>{
-        getData()
-})
+  
     console.log(data,"datadata")
     
    

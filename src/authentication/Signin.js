@@ -10,7 +10,6 @@ import { imgDB } from '../firebaseConfig'
 export function Signin(){
    
     const history=useNavigate();
-
     const[email,setEmail]=useState('')
     const[password,setPassword]=useState('')
    

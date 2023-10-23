@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState,useRouter } from "react"
 import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { app } from '../firebaseConfig'
+import { getAuth, createUserWithEmailAndPassword ,onAuthStateChanged} from "firebase/auth";
+import { app,db } from '../firebaseConfig'
 import styles from './styles.module.css';
+// import { get onAuthStateChanged } from
+import { setDoc, doc} from "firebase/firestore";
 export function Signup() {
     const history=useNavigate();
 
@@ -14,9 +16,19 @@ export function Signup() {
         e.preventDefault();
         const auth = getAuth(app);
         createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
+        .then(async (userCredential) => {
             // Signed up 
+            const userData = {
+                uid: userCredential.user.uid,
+                email:email,
+                //displayName: 
+                createdAt: Date.now(),
+                posts: [],
+            };
+            await setDoc(doc(db, "users", userCredential.user.uid), userData);
+            console.log(userData)
             window.location.href='/'
+``
             // ...
         })
         .catch((error) => {
@@ -24,31 +36,7 @@ export function Signup() {
             const errorMessage = error.message;
             // ..
         });
-        /*
-        try{
-
-            await axios.post("http://localhost:8000/signup",{
-                email,password
-            })
-            .then(res=>{
-                if(res.data=="exist"){
-                    alert("User already exists")
-                }
-                else if(res.data=="notexist"){
-                    history("/home",{state:{id:email}})
-                }
-            })
-            .catch(e=>{
-                alert("wrong details")
-                console.log(e);
-            })
-
-        }
-        catch(e){
-            console.log(e);
-
-        }*/
-
+        
     }
 
 
@@ -61,8 +49,6 @@ export function Signup() {
                 <input type="email" onChange={(e)=>{setEmail(e.target.value)}}   placeholder="Email" name="" id="" className={styles.email}/>
                 <input type="password" onChange={(e)=>{setPassword(e.target.value)}}   placeholder="Password" name="" id=""  className={styles.password}/>
                 <input type="submit" onClick={submit} className={styles.submit}/>
-           
-
             </form>
 
             <br />

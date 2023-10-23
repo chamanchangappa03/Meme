@@ -21,6 +21,7 @@ export const ModalComponent = ({modalOpen
         open={modalOpen}
         onOk={() => setModalOpen(false)}
         onCancel={() => setModalOpen(false)}
+        
       
         footer={[
           <Button 
