@@ -1,0 +1,74 @@
+.App{
+    display: flex;
+    justify-self: center;
+    background-color:blueviolet;    
+    
+    cursor: pointer;
+    display: block;
+    width: 350px;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 15px;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+
+
+
+
+.container {
+    margin-top: 50px;
+  }
+
+.copy{
+    background-color: blue;
+    margin-top: 20px;
+}
+.home{
+    background-color:rgb(22, 221, 46);
+}
+.Libr{
+    background-color: rgb(13, 13, 223);
+    margin-top: 20px;
+}
+.img{
+    background-color: rgb(255, 255, 255);
+    margin-right: 100px;
+    position: relative; bottom :400px;
+    width:160px;
+    padding: 50px;
+}
+.add{
+    padding-top: 1vh;
+    position: relative; bottom: 100px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+    color: rgb(147, 99, 99);
+    background-color: rgb(181, 51, 51);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+}
+.txt{
+    padding-top: 1vh;
+    position: relative; bottom: 5px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+    color: rgb(16, 222, 241);
+    background-color: rgb(255, 255, 255);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+}
+.post{
+    width: 50px;
+    margin-left: 200px;
+    position: relative; bottom: 600px;
+    background-color: coral;
+}

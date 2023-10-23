@@ -1,0 +1,17 @@
+.posts-card{
+    width: 500px;
+    height: 400px;
+    background-color: rgb(201, 164, 18);
+    margin-top: 30px;
+    border: 1px solid #b7b7b7;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    .text-status{
+       align-items: bottom;
+        margin-top: 400px;
+    }
+    
+}
