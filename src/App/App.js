@@ -6,6 +6,8 @@ import { Home } from '../authentication/Home';
 import { Signup } from '../authentication/Signup';
 import { Post } from '../Post/Post';
 import { Signin } from '../authentication/Signin'
+//import { onLogout } from '../Api/AuthApi';
+
 // import { useState } from 'react';
 // import Dashboard from '../dashboard';
 // import * as ROUTES from '../constants/routes';4
@@ -16,7 +18,9 @@ export const App = () => {
   return (
     <div>
       <h1>Meme Creator</h1>
+      
       <Routes>
+        
         <Route exact path='/Signup' element={<Signup />}></Route>
         <Route exact path='/Home' element={<Home />}></Route>
         <Route exact path='/' element={<Signin />}></Route>

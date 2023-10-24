@@ -1,10 +1,11 @@
 import {
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
-    
+    signOut
   } from "firebase/auth";
   import { auth } from "../firebaseConfig";
-  
+  import { useNavigate } from "react-router-dom";
+  // const navi=useNavigate;
   export const LoginAPI = (email, password) => {
     try {
       let response = signInWithEmailAndPassword(auth, email, password);
@@ -22,3 +23,7 @@ import {
       return err;
     }
   };
+
+  
+  
+

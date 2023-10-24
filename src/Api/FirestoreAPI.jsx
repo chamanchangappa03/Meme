@@ -1,8 +1,11 @@
 
-import { db } from "../firebaseConfig"
+import { db,imgDB } from "../firebaseConfig"
 import { addDoc,collection,onSnapshot } from "firebase/firestore"
 import { toast } from "react-toastify"
-let dbRef=collection(db,'posts')
+let dbRef=collection(db,'posts');
+
+
+
 export const post=(object)=>{
     
 addDoc(dbRef,object)
@@ -12,6 +15,7 @@ addDoc(dbRef,object)
 })
 .catch((err) =>{
     console.log(err);
+   
 });
 };
  

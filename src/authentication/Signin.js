@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import axios from "axios";
+
 import { useNavigate,Link } from "react-router-dom";
-import { app } from '../firebaseConfig'
+import { app,db } from '../firebaseConfig'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import styles from './styles.module.css';
 import { doc } from "firebase/firestore";
 import { setDoc } from "firebase/firestore"
 import { imgDB } from '../firebaseConfig'
+
+
 export function Signin(){
    
     const history=useNavigate();
@@ -15,41 +17,29 @@ export function Signin(){
    
    async function submit(e){
     e.preventDefault();
-   /*
-    try{
-        await axios.post("http://localhost:8000/",(
-            email,password
-        ))
-        .then(res=>{
-            if(res.data="exist"){
-                history("/home",{state:{id:email}})
-            }
-            else(res.data="notexist");{
-                alert("User have not sign up")
-            }
-        })
-
-       .catch(e=>{
-        alert("wrong details")
-        console.log(e);
-   })
-
-       }
-       catch(e){
-            console.log(e);
-       }
-       */
-
+  
+  
 
        const auth = getAuth(app);
        signInWithEmailAndPassword(auth, email, password)
-         .then((userCredential) => {
-           // Signed in 
-           const user = userCredential.user;
-           window.location.href='/home'
-           // ...
-           
-         })
+
+       .then(async (userCredential) => {
+        // Signed up 
+        const userData = {
+            uid: userCredential.user.uid,
+            email:email,
+            //displayName: 
+            createdAt: Date.now(),
+            posts: [],
+        };
+        await setDoc(doc(db, "users", userCredential.user.uid), userData);
+        console.log(userData)
+        history("home")
+    
+
+
+        // ...
+    })
          .then(async(result)=>{
             console.log(result.user);
             const ref=doc(imgDB,"usersInformation",result.user.uid)
@@ -61,7 +51,6 @@ export function Signin(){
            const errorMessage = error.message;
          });
 }
-   
    
    
     return(

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 import { useNavigate } from 'react-router-dom';
 // import { Search } from '../components/Search';
-
+import { onLogout } from '../Api/AuthApi';
 export const Meme = () => {
 
   const [memes, setMemes] = useState([]);
@@ -78,7 +78,7 @@ export const Meme = () => {
       {/* <Search/> */}
       <div className={styles.srchres}>SearchResults</div>
       
-
+      {/* <button onClick={onLogout}>Logout</button> */}
 
       {
         captions.map((c, index) => (

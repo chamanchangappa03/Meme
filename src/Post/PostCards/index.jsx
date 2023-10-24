@@ -12,8 +12,9 @@ export default function PostsCard({ posts ,user}){
             {posts.timestamp}
         </p>
         <p className="text-status">
-            {user}
+            {posts.userEmail}
         </p>
+        <img src={posts.imgUrl} />
 
         </div>
     )

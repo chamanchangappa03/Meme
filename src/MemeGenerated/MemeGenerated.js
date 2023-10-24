@@ -62,7 +62,7 @@ export const MemeGenerated=()=>{
     
     const downloadFileAtURL=(url)=>{
         
-
+        
         const fileName=url.split('/').pop()
         const aTag=document.createElement('a')
         aTag.href=url
@@ -121,5 +121,3 @@ export const MemeGenerated=()=>{
         </div>
         )
 }
-
-
