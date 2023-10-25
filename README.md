@@ -1,7 +1,6 @@
 # Meme generator
 -welcome to my website where you can create meme
 -my video link https://youtu.be/TkHL0zCYwBM
--but the video is still uploading you can use it after 2am 26th october
 ### Prerequisites
 Before you begin, ensure you have met the following requirements:
 
