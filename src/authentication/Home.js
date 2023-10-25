@@ -17,9 +17,8 @@ export function Home (){
     const gotoMeme=()=>{
         navigate("/Meme")
     }
-    const gotolib=()=>{
-        navigate("/Library")
-    }
+ 
+
     
  
    
@@ -28,8 +27,8 @@ export function Home (){
             <h1>Hello   welcome to the home</h1>
 
             <button onClick={() => gotoMeme()} className={styles.genmeme}>Generate Meme</button>
-            <button onClick={()=>gotolib()} className={styles.lib}>Library</button>
-            <button onClick={onLogout}>Logout</button>
+            
+            <button className={styles.logout} onClick={onLogout}>Logout</button>
         </div>
     )
 }

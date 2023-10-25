@@ -64,7 +64,7 @@ export function Signin(){
             <br/>
             <p>or</p>
             <br/>
-            <Link to="/signup">Signup page</Link>
+            <Link className={styles.sign}to="/signup">Signup page</Link>
         </div>
     )
 }

@@ -4,7 +4,9 @@ body {
     'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('download2.jpeg');
+  background-image: url('download4.jpg') ;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
 }
 

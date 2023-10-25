@@ -51,3 +51,10 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: large;
 }
+.logout{
+    margin-top: 100px;
+    background-color: black;
+}
+.sign{
+    background-color: rgb(231, 229, 233);
+}

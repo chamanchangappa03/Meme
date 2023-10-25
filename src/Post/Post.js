@@ -12,7 +12,7 @@ import { db,imgDB,txtDB } from '../firebaseConfig'
 import {ref,uploadBytesResumable,getDownloadURL} from 'firebase/storage'
 import { collection, doc, getDoc, getDocs,updateDoc, where, getFirestore, orderBy, query,arrayUnion} from "firebase/firestore";
 // import {  } from "../authentication/Signin"
-import { uploadPostImage } from "../Api/Image";
+// import { uploadPostImage } from "../Api/Image";
 
 export const Post  = () =>{ 
     const [modalOpen, setModalOpen] = useState(false);
@@ -25,38 +25,38 @@ export const Post  = () =>{
     const sendStatus=async()=>{
         let url;
         console.log(postImage)
-          // console.log(data);
-          const storageRef = ref(imgDB, postImage.name);
+          // console.log(post);
+          // const storageRef = ref(imgDB, postImage.name);
       
-          const uploadTask = uploadBytesResumable(storageRef, postImage);
+          // const uploadTask = uploadBytesResumable(storageRef, postImage);
       
-          uploadTask.on(
-            "state_changed",
-            (snapshot) => {
-              // Observe state change events such as progress, pause, and resume
-              // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-              console.log(snapshot)
-            },
-            (error) => {
-              // Handle unsuccessful uploads
-              console.log(error)
-            },
-            () => {
-              // Handle successful uploads on complete
-              // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-              getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                url=downloadURL
-                console.log("File available at", downloadURL);
-              });
-            }
-          );
+          // uploadTask.on(
+          //   "state_changed",
+          //   (snapshot) => {
+          //     // Observe state change events such as progress, pause, and resume
+          //     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+          //     console.log(snapshot)
+          //   },
+          //   (error) => {
+          //     // Handle unsuccessful uploads
+          //     console.log(error)
+          //   },
+          //   () => {
+          //     // Handle successful uploads on complete
+          //     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+          //     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          //       url=downloadURL
+          //       console.log("File available at", downloadURL);
+          //     });
+          //   }
+          // );
         
 
         let object={
             status:status,
             timestamp:getCurrentTimeStamp('LLL'),
             userEmail:user.email,
-            image:null||getDownloadURL
+            // image:null||getDownloadURL
         }
     await post(object);
     await setModalOpen(false);
@@ -83,7 +83,7 @@ return(
         status={status}
         sendStatus={sendStatus}
         setPostImage={setPostImage}
-        uploadPostImage={uploadPostImage}
+        // uploadPostImage={uploadPostImage}
         />
         <div>
 
